@@ -3,17 +3,21 @@ def substrings(string, substring)
     if substring.is_a?(Array) == false
         return "Library of substrings must be an array"
     end
+  #remove case sensitive
+    string = string.downcase()
   #split the string into array of chars
-    string_array = string.split("")
     final_hash = {}
   #loop through the substring array and check the main string if there is a match
     substring.each do |item|
-      sub_chars = item.split("")
-      if string_array.each_cons(sub_chars.length).include?(sub_chars)
-        sub_word = sub_chars.join("")
-        total_count = string_array.each_cons(sub_chars.length).count(sub_chars)
-        final_hash[sub_word] = total_count
+      item = item.downcase()
+      if string.include?(item)
+        total_count = string.scan(item).length
+        final_hash[item] = total_count
       end
     end
   return final_hash
 end
+
+library =['Hey', 'cat', 'you?']
+
+puts substrings('Hey, how are you? you?', library)
