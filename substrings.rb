@@ -17,7 +17,3 @@ def substrings(string, substring)
     end
   return final_hash
 end
-
-library =['Hey', 'cat', 'you?']
-
-puts substrings('Hey, how are you? you?', library)
